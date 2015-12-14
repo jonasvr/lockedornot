@@ -11,16 +11,13 @@
 |
 */
 
-use App\User;
-
-
 get('/', ['as' => 'home',       function () {
     return view('home');
 }]);
 
-get('/dashboard', ['as' => 'dashboard',       function () {
-    return view('dashboard.index');
-}]);
+//get('/dashboard', ['as' => 'dashboard',       function () {
+//    return view('dashboard.index');
+//}]);
 
 
 // Password reset
@@ -36,7 +33,7 @@ get('register/{provider}',  ['as' => 'social-register', 'uses' => 'Auth\AuthCont
 
 // Authentication routes...
 get('login',       ['as' => 'login',            'uses' => 'Auth\AuthController@getLogin']);
-post('login',      ['as' => 'post-login',         'uses' => 'Auth\AuthController@postLogin']);
+post('login',      ['as' => 'post-login',       'uses' => 'Auth\AuthController@postLogin']);
 get('logout',      ['as' => 'logout',           'uses' => 'Auth\AuthController@getLogout']);
 
 
@@ -44,9 +41,10 @@ get('nglogin', function(){
     return view('nglogin');
 });
 
+resource('dashboard', 'DashboardController@index');
 
 Route::group(['prefix' => 'api'], function()
 {
-    Route::resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
-    Route::post('authenticate', 'AuthenticateController@authenticate');
+    resource('authenticate', 'AuthenticateController', ['only' => ['index']]);
+    post('authenticate', 'AuthenticateController@authenticate');
 });

@@ -38,7 +38,7 @@ class AuthenticateController extends Controller
 
         $credentials = $request->only('email', 'password');
 
-//        dd($credentials);
+//        dd($request);
 
         try {
             // verify the credentials and create a token for the user
