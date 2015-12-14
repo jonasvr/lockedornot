@@ -1,0 +1,48 @@
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
+.content-main{
+
+    position: relative;
+    top: 10rem;
+
+}
+
+
+.main-bckgr-img{
+
+    position: absolute;
+    width: 100%;
+}
+
+.front-info{
+    height: 80%;
+    width: 80%;
+    border: solid ghostwhite 3px;
+    position: absolute;
+    left: 50%; top: 10%;
+    -webkit-transform: translate(-50%);
+    transform: translate(-50%);
+}
+
+div.modal-backdrop.fade.in{
+    z-index:-1;
+}
+
+nav ul.navbar-right li{
+    right: 35px;
+}
+
+
+footer{
+    position: fixed;
+    bottom: 2rem;
+    right: 35px;
+}
+
+
+.modal-content{
+    border-radius:0;
+}
